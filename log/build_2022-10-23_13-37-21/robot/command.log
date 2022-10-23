@@ -1,0 +1,2 @@
+Invoking command in '/home/arc/dev_ws/build/robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/arc/dev_ws/build/robot -- -j4 -l4
+Invoked command in '/home/arc/dev_ws/build/robot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/arc/dev_ws/build/robot -- -j4 -l4

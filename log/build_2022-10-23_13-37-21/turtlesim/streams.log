@@ -1,0 +1,19 @@
+[0.029s] Invoking command in '/home/arc/dev_ws/build/turtlesim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/arc/dev_ws/build/turtlesim -- -j4 -l4
+[0.107s] [ 10%] Built target turtlesim__rosidl_generator_c
+[0.117s] [ 11%] Built target turtlesim__cpp
+[0.154s] [ 21%] Built target turtlesim__rosidl_typesupport_introspection_c
+[0.156s] [ 31%] Built target turtlesim__rosidl_typesupport_c
+[0.165s] [ 41%] Built target turtlesim__rosidl_typesupport_cpp
+[0.172s] [ 51%] Built target turtlesim__rosidl_typesupport_introspection_cpp
+[0.193s] [ 61%] Built target turtlesim__rosidl_typesupport_fastrtps_cpp
+[0.233s] [ 71%] Built target turtlesim__rosidl_typesupport_fastrtps_c
+[0.265s] [ 71%] Built target turtlesim
+[0.304s] [ 72%] Built target turtlesim__py
+[0.323s] [ 74%] Built target mimic
+[0.323s] [ 76%] Built target draw_square
+[0.326s] [ 78%] Built target turtle_teleop_key
+[0.363s] [ 87%] Built target turtlesim__python
+[0.369s] [ 93%] Built target turtlesim_node
+[0.400s] [ 95%] Built target turtlesim__rosidl_typesupport_fastrtps_c__pyext
+[0.408s] [100%] Built target turtlesim__rosidl_typesupport_c__pyext
+[0.408s] [100%] Built target turtlesim__rosidl_typesupport_introspection_c__pyext
