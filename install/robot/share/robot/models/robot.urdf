@@ -1,6 +1,6 @@
-<?xml version='1.0'?>
-  <model name='Robot'>
-    <link name='Frame'>
+<?xml version="1.0" ?>
+<robot name="robot">
+  <link name='Frame'>
       <inertial>
         <pose>0.326466 0.45024 0.186919 0 -0 0</pose>
         <mass>35.592</mass>
@@ -22,7 +22,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Frame_Detailed.STL</uri>
+            <uri>../meshes/Frame_Detailed.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -37,7 +37,7 @@
         <pose>0 0 0.04826 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Frame.STL</uri>
+            <uri>../meshes/Frame.STL</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -113,7 +113,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Wheel_Detailed.STL</uri>
+            <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -213,7 +213,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Wheel_Detailed.STL</uri>
+            <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -312,7 +312,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Wheel_Detailed.STL</uri>
+            <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -411,7 +411,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/arc/Documents/GitHub/IGVC-Robot/GazeboR1/WorkingRobot/Wheel_Detailed.STL</uri>
+            <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -614,31 +614,17 @@
           </suspension>
         </ode>
       </physics>
-    </joint>
-    <static>0</static>
-    <allow_auto_disable>1</allow_auto_disable>
-    <plugin name='Drive' filename='libgazebo_ros_diff_drive.so'>
-      <plugin name='wheel_drive_controller' filename='libgazebo_ros_diff_drive.so'>
-        <num_wheel_pairs>2</num_wheel_pairs>
-        <left_joint>FL_Axel</left_joint>
-        <left_joint>BL_Axel</left_joint>
-        <right_joint>FR_Axel</right_joint>
-        <right_joint>BR_Axel</right_joint>
-        <wheel_separation>0.702</wheel_separation>
-        <wheel_diameter>0.1981</wheel_diameter>
-        <max_wheel_torque>20.0</max_wheel_torque>
-        <max_wheel_acceleration>10.0</max_wheel_acceleration>
-        <odometry_source>world</odometry_source>
-        <odometry_frame>odom</odometry_frame>
-        <robot_base_frame>Frame</robot_base_frame>
-        <ros>
-          <namespace>/</namespace>
-          <argument>/cmd_vel:=cmd_vel</argument>
-          <argument>/odom:=odom</argument>
-        </ros>
-        <publish_odom>1</publish_odom>
-        <publish_odom_tf>1</publish_odom_tf>
-        <update_rate>100.0</update_rate>
-      </plugin>
-    </plugin>
-</model>
+      </joint>
+      <joint name="imu_joint" type="fixed">
+        <parent link="Frame"/>
+        <child link="imu_link"/>
+        <origin xyz="-0.10 0 0.05" rpy="0 0 0"/>
+      </joint>
+      <link name="imu_link"/>
+      <joint name="gps_joint" type="fixed">
+        <parent link="Frame"/>
+        <child link="gps_link"/>
+        <origin xyz="0.10 0 0.05" rpy="0 0 0"/>
+      </joint>
+      <link name="gps_link"/>
+</robot>
