@@ -1,23 +1,8 @@
 <?xml version="1.0" ?>
 <robot name="robot">
   <link name='Frame'>
-      <inertial>
-        <pose>0.326466 0.45024 0.186919 0 -0 0</pose>
-        <mass>35.592</mass>
-        <inertia>
-          <ixx>550.906</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>656.955</iyy>
-          <iyz>0</iyz>
-          <izz>317.173</izz>
-        </inertia>
-      </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
       <pose>0 0 0 0 -0 0</pose>
-      <visual name='Frame_visual'>
+      <visual>
         <pose>0 0 0.04826 0 -0 3.14159</pose>
         <geometry>
           <mesh>
@@ -25,15 +10,8 @@
             <uri>../meshes/Frame_Detailed.STL</uri>
           </mesh>
         </geometry>
-        <material>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='Frame_collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
+      <collision>
         <pose>0 0 0.04826 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -41,74 +19,11 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
-    </link>
+  </link>
     <link name='BL_Wheel'>
       <pose>-0.012938 0.1062 0.099568 -1.5707963267949 0 -3.14159</pose>
-      <inertial>
-        <pose>0 0 0 0 -0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-      </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-      <mu1>100.0</mu1>
-      <mu2>50.0</mu2>
-      <visual name='BL_Wheel_visual'>
+      <visual>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -116,26 +31,8 @@
             <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
-        <material>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <lighting>1</lighting>
-          <emissive>0 0 0 1</emissive>
-          <script>
-            <name>ModelPreview_22::BL_Wheel::BL_Wheel_visual_MATERIAL_</name>
-            <uri>__default__</uri>
-          </script>
-          <ambient>0 0 0 1</ambient>
-          <diffuse>0 0 0 1</diffuse>
-          <specular>0 0 0 1</specular>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision_1'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
+      <collision>
         <pose>0.03 0 0 0 1.5707963267949 0</pose>
         <geometry>
           <cylinder>
@@ -143,72 +40,11 @@
             <length>0.054193</length>
           </cylinder>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>0.9</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
     <link name='BR_Wheel'>
       <pose>0.67333 0.1062 0.099568 1.5707963267949 0 0</pose>
-      <inertial>
-        <pose>0.024308 0 0 0 -0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-      </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-      <visual name='BR_Wheel_visual'>
+      <visual>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -216,25 +52,8 @@
             <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
-        <material>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <script>
-            <name>ModelPreview_22::BR_Wheel::BR_Wheel_visual_MATERIAL_</name>
-            <uri>__default__</uri>
-          </script>
-          <ambient>0 0 0 1</ambient>
-          <diffuse>0 0 0 1</diffuse>
-          <specular>0 0 0 1</specular>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision_1'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
+      <collision>
         <pose>0.02 0 0 0 1.5707963267949 0</pose>
         <geometry>
           <cylinder>
@@ -242,72 +61,11 @@
             <length>0.054193</length>
           </cylinder>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
     <link name='FL_Wheel'>
       <pose>-0.012938 0.8082 0.099568 -1.5707963267949 0 -3.14159</pose>
-      <inertial>
-        <pose>0.024308 0 0 0 -0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-      </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-      <visual name='FL_Wheel_visual'>
+      <visual>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -315,25 +73,8 @@
             <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
-        <material>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <script>
-            <name>ModelPreview_22::FL_Wheel::FL_Wheel_visual_MATERIAL_</name>
-            <uri>__default__</uri>
-          </script>
-          <ambient>0 0 0 1</ambient>
-          <diffuse>0 0 0 1</diffuse>
-          <specular>0 0 0 1</specular>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision_1'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
+      <collision>
         <pose>0.02 0 0 0 1.5707963267949 0</pose>
         <geometry>
           <cylinder>
@@ -341,72 +82,11 @@
             <length>0.054193</length>
           </cylinder>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>0.9</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
     <link name='FR_Wheel'>
       <pose>0.67333 0.8082 0.099568 1.5707963267949 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 -0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-      </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-      <visual name='FR_Wheel_visual'>
+      <visual>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -414,25 +94,8 @@
             <uri>../meshes/Wheel_Detailed.STL</uri>
           </mesh>
         </geometry>
-        <material>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <script>
-            <name>ModelPreview_22::FR_Wheel::FR_Wheel_visual_MATERIAL_</name>
-            <uri>__default__</uri>
-          </script>
-          <ambient>0 0 0 1</ambient>
-          <diffuse>0 0 0 1</diffuse>
-          <specular>0 0 0 1</specular>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision_1'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
+      <collision>
         <pose>0.02 0 0 0 1.5707963267949 0</pose>
         <geometry>
           <cylinder>
@@ -440,51 +103,6 @@
             <length>0.054193</length>
           </cylinder>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>0.9</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
     <joint name='BL_Axel' type='revolute'>
@@ -615,16 +233,4 @@
         </ode>
       </physics>
       </joint>
-      <joint name="imu_joint" type="fixed">
-        <parent link="Frame"/>
-        <child link="imu_link"/>
-        <origin xyz="-0.10 0 0.05" rpy="0 0 0"/>
-      </joint>
-      <link name="imu_link"/>
-      <joint name="gps_joint" type="fixed">
-        <parent link="Frame"/>
-        <child link="gps_link"/>
-        <origin xyz="0.10 0 0.05" rpy="0 0 0"/>
-      </joint>
-      <link name="gps_link"/>
 </robot>
