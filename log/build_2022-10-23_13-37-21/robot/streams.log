@@ -1,9 +1,0 @@
-[0.033s] Invoking command in '/home/arc/dev_ws/build/robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/arc/dev_ws/build/robot -- -j4 -l4
-[0.062s] CMake Error at CMakeLists.txt:24:
-[0.062s]   Parse error.  Function missing ending ")".  End of file reached.
-[0.063s] 
-[0.063s] 
-[0.063s] -- Configuring incomplete, errors occurred!
-[0.063s] See also "/home/arc/dev_ws/build/robot/CMakeFiles/CMakeOutput.log".
-[0.064s] make: *** [Makefile:222: cmake_check_build_system] Error 1
-[0.066s] Invoked command in '/home/arc/dev_ws/build/robot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/arc/dev_ws/build/robot -- -j4 -l4

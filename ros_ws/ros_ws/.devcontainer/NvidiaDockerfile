@@ -1,0 +1,60 @@
+FROM nvidia/cudagl:11.1.1-base-ubuntu20.04
+ 
+SHELL ["/bin/bash", "-c"]
+
+# Minimal setup
+RUN apt-get update \
+ && apt-get install -y locales lsb-release
+ARG DEBIAN_FRONTEND=noninteractive
+RUN dpkg-reconfigure locales
+ 
+# Install ROS Noetic
+RUN apt-cache policy | grep universe
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository universe
+RUN apt-get install -y wget
+RUN apt update -y && apt install -y curl gnupg2 lsb-release
+
+#add gazebo repo
+RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+RUN wget https://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
+
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
+RUN apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y --no-install-recommends ros-foxy-desktop python3-argcomplete
+RUN apt-get install -y --no-install-recommends python3-rosdep
+RUN rosdep init \
+ && rosdep fix-permissions \
+ && rosdep update
+
+RUN apt-get install -y gazebo11
+RUN apt-get install -y libgazebo11-dev
+
+RUN apt-get install -y python3-colcon-common-extensions
+
+RUN apt-get install -y git
+RUN mkdir -p -v ~/nav2_ws/src
+RUN cd ~/nav2_ws/src \ 
+ && git clone https://github.com/ros-planning/navigation2.git --branch foxy-devel
+
+RUN apt-get install -y gcc g++
+RUN apt-get install -y ros-foxy-navigation2 ros-foxy-nav2-bringup '~ros-foxy-turtlebot3-.*'
+
+RUN source /opt/ros/foxy/setup.bash \
+ && cd ~/nav2_ws  \
+ && rosdep install -y -r -q --from-paths src --ignore-src --rosdistro foxy 
+
+RUN cd ~/nav2_ws  \
+ && source /opt/ros/foxy/setup.bash \
+ && colcon build --symlink-install 
+
+RUN useradd -ms /bin/bash arc -G sudo
+USER arc
+
+RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+RUN echo "source ~/root/nav2_ws/install/setup.bash" >> ~/.bashrc
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics, display

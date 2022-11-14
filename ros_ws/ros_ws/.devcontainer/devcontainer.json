@@ -1,0 +1,28 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"runArgs": ["-it", 
+                "--net=host", 
+                "--privileged",
+                "--env=DISPLAY=host.docker.internal:0.0",
+                "--cap-add=SYS_PTRACE", 
+                "--security-opt", 
+                "seccomp=unconfined"],
+	"containerEnv": {
+		"LIBGL_ALWAYS_INDIRECT": "0"
+    },
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-iot.vscode-ros",
+				"ms-python.python",
+				"twxs.cmake",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cpptools-themes"
+			]
+		}
+	},
+	"remoteUser": "arc"
+}
