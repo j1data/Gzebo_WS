@@ -84,6 +84,8 @@ RUN apt install --no-install-recommends -y \
 
 RUN apt install ros-foxy-joint-state-publisher-gui -y
 RUN apt install ros-foxy-xacro -y
+RUN apt install ros-foxy-gazebo-ros-pkgs
+RUN apt install ros-foxy-rqt-robot-steering
 
 # install pip libraries
 #RUN pip install <name>
@@ -98,3 +100,4 @@ USER arc
 RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 RUN echo "source /nav2_ws/install/setup.bash" >> ~/.bashrc
 RUN echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspaces/Gzebo_WS/ros_ws/ros_ws/src/basic_mobile_robot/models" >> ~/.bashrc
