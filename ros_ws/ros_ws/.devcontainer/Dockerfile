@@ -86,6 +86,7 @@ RUN apt install ros-foxy-joint-state-publisher-gui -y
 RUN apt install ros-foxy-xacro -y
 RUN apt install ros-foxy-gazebo-ros-pkgs
 RUN apt install ros-foxy-rqt-robot-steering
+RUN apt install nano -y
 
 # install pip libraries
 #RUN pip install <name>
